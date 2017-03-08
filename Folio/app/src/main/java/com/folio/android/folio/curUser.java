@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class curUser {
     private int numCards;
     private int limit;
-    private ArrayList<Cards> curCards;
+    private ArrayList<Card> curCards;
     public curUser(){
         //user starts with zero cards
         this.numCards = 0;
         //default number of cards is 15
         this.limit = 15;
-        this.curCards = new ArrayList<Cards>();
+        this.curCards = new ArrayList<Card>();
     }
     public void limitIncrease(){
         //if user purchases extra cards, we increment limit.
@@ -35,7 +35,7 @@ public class curUser {
     public int getNumCards(){
         return this.numCards;
     }
-    public boolean addCard(Cards addCard){
+    public boolean addCard(Card addCard){
         if(canAdd()){
             curCards.add(addCard);
             return true;
