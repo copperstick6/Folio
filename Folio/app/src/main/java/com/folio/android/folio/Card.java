@@ -1,5 +1,8 @@
 package com.folio.android.folio;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by copperstick6 on 3/7/17.
  */
@@ -7,6 +10,7 @@ package com.folio.android.folio;
 //we need to create this object only after we validate with user data
 //OpenCV could be unreliable, as we saw with the Microsoft OCR
 public class Card {
+    private HashMap<Character, HashMap<Integer, String>> beginningChar;
 
     //critical user information
     private String userName;
@@ -38,6 +42,7 @@ public class Card {
         this.phoneNumber = cardPhone;
         this.email = cardEmail;
         this.rawAddress = rawAdd;
+        initMaps();
         processAdd(rawAdd);
     }
 
@@ -45,7 +50,9 @@ public class Card {
         int commaChar = rawAddress.indexOf(",");
         String mainAddress = rawAddress.substring(0, commaChar);
         this.mainAddress = mainAddress;
-        
+
+    }
+    public void initMaps(){
 
     }
 }
