@@ -21,14 +21,14 @@
         android:layout_height="wrap_content"
         android:ems = "10"
         android:id = "@+id/firstName"
-        android:text="@string/first_name"/>
+        android:hint="@string/first_name"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems = "10"
             android:id = "@+id/lastName"
-            android:text="@string/last_name"/>
+            android:hint="@string/last_name"/>
     </LinearLayout>
 
     <EditText
@@ -37,7 +37,7 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/streetAddress"
-        android:text = "@string/street_address"/>
+        android:hint = "@string/street_address"/>
 
     <LinearLayout
         android:paddingTop="10dp"
@@ -50,21 +50,21 @@
             android:layout_height="wrap_content"
             android:ems = "10"
             android:id = "@+id/city"
-            android:text = "@string/city"/>
+            android:hint = "@string/city"/>
 
         <EditText
             android:layout_width="156dp"
             android:layout_height="wrap_content"
             android:ems = "10"
             android:id = "@+id/zipCode"
-            android:text = "@string/zip_code"/>
+            android:hint = "@string/zip_code"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems = "10"
             android:id = "@+id/state"
-            android:text = "@string/state"/>
+            android:hint = "@string/state"/>
     </LinearLayout>
 
     <EditText
@@ -73,14 +73,14 @@
         android:inputType="phone"
         android:ems = "10"
         android:id = "@+id/phoneNumber"
-        android:text = "@string/phone_number"/>
+        android:hint = "@string/phone_number"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems = "10"
         android:id = "@+id/business"
-        android:text = "@string/business"/>
+        android:hint = "@string/business"/>
 
     <Button
         android:layout_width="match_parent"
