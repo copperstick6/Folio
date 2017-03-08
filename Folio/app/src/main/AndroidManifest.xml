@@ -15,8 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <uses-feature android:name="android.hardware.camera"
-                      android:required="true" />
+
+        <uses-feature
+            android:name="android.hardware.camera"
+            android:required="true"/>
+
+        <activity android:name=".Manual_Input">
+        </activity>
     </application>
 
 </manifest>

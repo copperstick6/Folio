@@ -1,6 +1,5 @@
 package com.folio.android.folio;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -92,9 +91,9 @@ public class Card {
         return true;
     }
 
+
     //we need to use google maps to process
     //TODO implement Google Maps
-
     /**
      *
      * This method will process the raw address inputted as a result of the OCR process
@@ -109,9 +108,9 @@ public class Card {
 
     }
 
+
     //TODO need to add the postal codes one by one >.> Pain in the ass, but will do later
     //TODO need to unit test to check if all postal tests were added properly
-
     /**
      * This method will initalize all the addresses and then we can perform our own check to see if the address is actually an address
      * before we pass it into google maps API

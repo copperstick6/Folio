@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_manual__input"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.folio.android.folio.Manual_Input">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation = "horizontal">
+
+        <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems = "10"
+        android:id = "@+id/firstName"
+        android:text="@string/first_name"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems = "10"
+            android:id = "@+id/lastName"
+            android:text="@string/last_name"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/streetAddress"
+        android:text = "@string/street_address"/>
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation = "horizontal">
+
+        <EditText
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:ems = "10"
+            android:id = "@+id/city"
+            android:text = "@string/city"/>
+
+        <EditText
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:ems = "10"
+            android:id = "@+id/zipCode"
+            android:text = "@string/zip_code"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems = "10"
+            android:id = "@+id/state"
+            android:text = "@string/state"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems = "10"
+        android:id = "@+id/phoneNumber"
+        android:text = "@string/phone_number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems = "10"
+        android:id = "@+id/business"
+        android:text = "@string/business"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/addCard"
+        android:text = "@string/add_card_button"/>
+</LinearLayout>
