@@ -27,15 +27,22 @@ public class Card {
     private String country;
     private String city;
     private String mainAddress;
-
-
     private String position;
-
     //for nerds, because not everyone has a personal web address
     private String webAddress;
-
     //company website
     private String companyWebsite;
+
+    /**
+     *
+     * This is the Card object that should be called when OCV is performed
+     *
+     * @param cardName      This is the name of the person on this card
+     * @param cardBusiness  This is the name of the business the person works for
+     * @param cardPhone     This is the phone number of the user
+     * @param cardEmail     This is the email of the user
+     * @param rawAdd        This is the raw address of the user, processed by OCV
+     */
     public Card(String cardName, String cardBusiness, int cardPhone, String cardEmail,String rawAdd){
         this.userName = cardName;
         this.userBusiness = cardBusiness;
@@ -46,13 +53,71 @@ public class Card {
         processAdd(rawAdd);
     }
 
+    /**
+     *
+     * This Card object should be called when the user manually inputs all of their data
+     *
+     * @param cardName      This is the name of the person on this card
+     * @param cardBusiness  This is the name of the business the person works for
+     * @param cardPhone     This is the phone number of the user
+     * @param cardEmail     This is the email of the user
+     * @param zip           This is the zip of the user on the card
+     * @param country       This is the country of the user on the card
+     * @param city          This is the city of the user on the card
+     * @param mainAdd       This is the main address of the user on the card
+     */
+    public Card(String cardName, String cardBusiness, int cardPhone, String cardEmail,int zip, String country, String city, String mainAdd){
+        this.userName = cardName;
+        this.userBusiness = cardBusiness;
+        this.phoneNumber = cardPhone;
+        this.email = cardEmail;
+        this.zipCode = zip;
+        this.country = country;
+        this.city = city;
+        this.mainAddress = mainAdd;
+    }
+
+
+    /**
+     *This method will change the instance variable of the Card object, specifically position
+     *
+     * @param position  This is the position the user holds
+     * @return  Return true if position is changed, false otherwise
+     */
+    public boolean setPosition(String position){
+        if(position == null || position.length() == 0){
+            return false;
+        }
+        this.position = position;
+        return true;
+    }
+
+    //we need to use google maps to process
+    //TODO implement Google Maps
+
+    /**
+     *
+     * This method will process the raw address inputted as a result of the OCR process
+     * it will process the main address and then call the google maps API to retrieve all other data
+     *
+     * @param rawAddress    This is the raw address processed by OCV, raw address should be mainAddress, secondary address, location
+     */
     public void processAdd(String rawAddress){
         int commaChar = rawAddress.indexOf(",");
         String mainAddress = rawAddress.substring(0, commaChar);
         this.mainAddress = mainAddress;
 
     }
+
+    //TODO need to add the postal codes one by one >.> Pain in the ass, but will do later
+    //TODO need to unit test to check if all postal tests were added properly
+
+    /**
+     * This method will initalize all the addresses and then we can perform our own check to see if the address is actually an address
+     * before we pass it into google maps API
+     */
     public void initMaps(){
+
 
     }
 }
