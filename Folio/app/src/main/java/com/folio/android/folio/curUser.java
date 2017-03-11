@@ -13,6 +13,7 @@ public class curUser {
     private int numCards;
     private int limit;
     private ArrayList<Card> curCards;
+    private boolean first;
 
     /**
      * Default Constructor to create a new user object for the current user
@@ -25,6 +26,7 @@ public class curUser {
         //default number of cards is 15
         this.limit = 15;
         this.curCards = new ArrayList<Card>();
+        this.first = false;
     }
 
     /**

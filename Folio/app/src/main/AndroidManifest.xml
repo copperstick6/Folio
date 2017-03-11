@@ -22,6 +22,10 @@
 
         <activity android:name=".Manual_Input">
         </activity>
+        <activity android:name=".addChoiceActivity">
+        </activity>
+        <activity android:name=".OCVSuggestion">
+        </activity>
     </application>
 
 </manifest>

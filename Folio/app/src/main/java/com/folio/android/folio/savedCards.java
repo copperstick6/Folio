@@ -13,14 +13,8 @@ public class savedCards extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_cards);
-        manual_input = (Button) findViewById(R.id.add_manual);
-        manual_input.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(savedCards.this, Manual_Input.class);
-                startActivity(i);
-            }
-        });
+        Intent i = new Intent(savedCards.this, addChoiceActivity.class);
+        startActivity(i);
 
     }
 }

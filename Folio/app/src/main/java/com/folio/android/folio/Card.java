@@ -24,8 +24,9 @@ public class Card {
 
     private int zipCode;
     private String country;
-    private String city;
+    private String state;
     private String mainAddress;
+    private String city;
     private String position;
     //for nerds, because not everyone has a personal web address
     private String webAddress;
@@ -49,12 +50,38 @@ public class Card {
         this.email = cardEmail;
         this.rawAddress = rawAdd;
         initMaps();
-        processAdd(rawAdd);
+        processAdd();
     }
 
     /**
      *
-     * This Card object should be called when the user manually inputs all of their data
+     * This Card object should be called when the user manually inputs all of their data and is from the US
+     *
+     * @param cardName      This is the name of the person on this card
+     * @param cardBusiness  This is the name of the business the person works for
+     * @param cardPhone     This is the phone number of the user
+     * @param cardEmail     This is the email of the user
+     * @param zip           This is the zip of the user on the card
+     * @param country       This is the country of the user on the card
+     * @param city          This is the city of the user on the card
+     * @param mainAdd       This is the main address of the user on the card
+     * @param state         This is the state that the user is from
+     */
+    public Card(String cardName, String cardBusiness, int cardPhone, String cardEmail,int zip, String country, String city, String mainAdd, String state){
+        this.userName = cardName;
+        this.userBusiness = cardBusiness;
+        this.phoneNumber = cardPhone;
+        this.email = cardEmail;
+        this.zipCode = zip;
+        this.country = country;
+        this.city = city;
+        this.mainAddress = mainAdd;
+        this.state = state;
+    }
+
+    /**
+     *
+     * This Card object should be called when the user manually inputs all of their data and is from the US
      *
      * @param cardName      This is the name of the person on this card
      * @param cardBusiness  This is the name of the business the person works for
@@ -75,7 +102,6 @@ public class Card {
         this.city = city;
         this.mainAddress = mainAdd;
     }
-
 
     /**
      *This method will change the instance variable of the Card object, specifically position
@@ -99,11 +125,9 @@ public class Card {
      * This method will process the raw address inputted as a result of the OCR process
      * it will process the main address and then call the google maps API to retrieve all other data
      *
-     * @param rawAddress    This is the raw address processed by OCV, raw address should be mainAddress, secondary address, location
      */
-    public void processAdd(String rawAddress){
-        int commaChar = rawAddress.indexOf(",");
-        String mainAddress = rawAddress.substring(0, commaChar);
+    public void processAdd(){
+        String mainAddress = this.rawAddress.substring(0, this.rawAddress.indexOf(","));
         this.mainAddress = mainAddress;
 
     }
