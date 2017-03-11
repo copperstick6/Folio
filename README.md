@@ -1,8 +1,8 @@
 # Folio
 
 ## Dependencies:
-Maven 3.3.9   
-Then run *mvn compile* in terminal in the root directory to add the files to the local directory to install all dependencies found in pom.xml
+NVM fuck Maven. We're using the default package manager for Android studio, which is gradle.  
+Make sure you have internet connection when compiling for the first time
 ## View the latest iteration of the Stack diagram via draw.io
 
 We're using API level 21, or Android v5.0 lollipop due to Android Beam and all the new Bluetooth features added. Plus, the targeted market size is quite large.
