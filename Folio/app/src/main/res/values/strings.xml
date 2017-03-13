@@ -13,6 +13,7 @@
     <string name="business">Business</string>
     <string name="addManual">Add Cards Manually</string>
     <string name="addOCV">Add Cards Automatically</string>
+    <string name ="add_SQL">Add SQLite integration to save card data</string>
     <string-array name="stateCodes">
         <item>N/A</item>
         <item>AL</item>
