@@ -38,37 +38,9 @@ public class Manual_Input extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 boolean emptyField = false;
-                firstName = (EditText) findViewById(R.id.firstName);
-                lastName = (EditText) findViewById(R.id.lastName);
-                address1 = (EditText) findViewById(R.id.streetAddress);
-                address2 = (EditText) findViewById(R.id.streetAddress_2);
-                country = (Spinner)findViewById(R.id.country_spinner);
-                usState = (Spinner) findViewById(R.id.state_spinner);
-                zipCode = (EditText) findViewById(R.id.zipCode);
-                phoneNumber = (EditText) findViewById(R.id.phoneNumber);
-                city = (EditText) findViewById(R.id.city);
-                business = (EditText) findViewById(R.id.business);
+                initializeFieldListeners();
+                initializeSizeRestraints();
 
-                //making sure that the fields won't stretch their width
-                firstName.setMaxWidth(firstName.getWidth());
-                lastName.setMaxWidth(lastName.getWidth());
-                address1.setMaxWidth(address1.getWidth());
-                address2.setMaxWidth(address2.getWidth());
-                zipCode.setMaxWidth(zipCode.getWidth());
-                phoneNumber.setMaxWidth(phoneNumber.getWidth());
-                city.setMaxWidth(city.getWidth());
-                business.setMaxWidth(business.getWidth());
-
-                //making sure that the fields won't stretch their given height
-
-                firstName.setMaxHeight(firstName.getHeight());
-                lastName.setMaxHeight(lastName.getHeight());
-                address1.setMaxHeight(address1.getHeight());
-                address2.setMaxHeight(address2.getHeight());
-                zipCode.setMaxHeight(zipCode.getHeight());
-                phoneNumber.setMaxHeight(phoneNumber.getHeight());
-                city.setMaxHeight(city.getHeight());
-                business.setMaxHeight(business.getHeight());
 
                 if(firstName.getText().toString().length() == 0){
                     firstName.setError("First Name is required!");
@@ -137,5 +109,40 @@ public class Manual_Input extends AppCompatActivity {
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         stateSpinner.setAdapter(stateAdapter);
+    }
+
+    public void initializeFieldListeners(){
+        firstName = (EditText) findViewById(R.id.firstName);
+        lastName = (EditText) findViewById(R.id.lastName);
+        address1 = (EditText) findViewById(R.id.streetAddress);
+        address2 = (EditText) findViewById(R.id.streetAddress_2);
+        country = (Spinner)findViewById(R.id.country_spinner);
+        usState = (Spinner) findViewById(R.id.state_spinner);
+        zipCode = (EditText) findViewById(R.id.zipCode);
+        phoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        city = (EditText) findViewById(R.id.city);
+        business = (EditText) findViewById(R.id.business);
+    }
+    public void initializeSizeRestraints(){
+        //making sure that the fields won't stretch their width
+        firstName.setMaxWidth(firstName.getWidth());
+        lastName.setMaxWidth(lastName.getWidth());
+        address1.setMaxWidth(address1.getWidth());
+        address2.setMaxWidth(address2.getWidth());
+        zipCode.setMaxWidth(zipCode.getWidth());
+        phoneNumber.setMaxWidth(phoneNumber.getWidth());
+        city.setMaxWidth(city.getWidth());
+        business.setMaxWidth(business.getWidth());
+
+        //making sure that the fields won't stretch their given height
+
+        firstName.setMaxHeight(firstName.getHeight());
+        lastName.setMaxHeight(lastName.getHeight());
+        address1.setMaxHeight(address1.getHeight());
+        address2.setMaxHeight(address2.getHeight());
+        zipCode.setMaxHeight(zipCode.getHeight());
+        phoneNumber.setMaxHeight(phoneNumber.getHeight());
+        city.setMaxHeight(city.getHeight());
+        business.setMaxHeight(business.getHeight());
     }
 }
