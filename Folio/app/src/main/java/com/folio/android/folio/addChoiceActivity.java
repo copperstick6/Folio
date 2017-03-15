@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class addChoiceActivity extends AppCompatActivity {
+    private static final String TAG = "addChoiceActivity";
     public Button OCV_input;
     public Button manual_input;
     @Override
@@ -22,7 +24,10 @@ public class addChoiceActivity extends AppCompatActivity {
         OCV_input.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(addChoiceActivity.this, R.string.add_OCV, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(addChoiceActivity.this, R.string.add_OCV, Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "clicked on Add Cards Automatically");
+                Intent i = new Intent(addChoiceActivity.this, Camera.class);
+                startActivity(i);
             }
         });
 
