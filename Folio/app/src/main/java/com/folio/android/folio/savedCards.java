@@ -1,21 +1,30 @@
 package com.folio.android.folio;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
-public class savedCards extends AppCompatActivity {
-    public cardDB cards;
+public class savedCards extends FragmentActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cards = new cardDB(this);
         setContentView(R.layout.activity_saved_cards);
-        Intent i = new Intent(savedCards.this, addChoiceActivity.class);
-        startActivity(i);
+        //Intent i = new Intent(savedCards.this, addChoiceActivity.class);
+        //startActivity(i);
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.activity_saved_cards);
+        if(fragment == null){
+            fragment = new cardFragment();
+            fm.beginTransaction().add(R.id.activity_saved_cards, fragment).commit();
+        }
+
 
     }
 }
