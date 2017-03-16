@@ -2,6 +2,7 @@ package com.folio.android.folio;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -62,5 +63,10 @@ public class cardDB extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cur = db.rawQuery("SELECT * FROM "+ TABLE_NAME, null);
+        return cur;
     }
 }

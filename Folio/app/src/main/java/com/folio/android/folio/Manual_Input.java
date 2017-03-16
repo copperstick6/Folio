@@ -1,5 +1,7 @@
 package com.folio.android.folio;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +28,7 @@ public class Manual_Input extends AppCompatActivity {
     public EditText city;
     public EditText business;
     public cardDB cards;
+    public Button getAll;
 
 
 
@@ -36,6 +39,51 @@ public class Manual_Input extends AppCompatActivity {
         countrySpinner();
         stateSpinner();
         cards = new cardDB(this);
+        addCardBtn();
+        getAllBtn();
+
+    }
+
+    private void getAllBtn(){
+        getAll = (Button) findViewById(R.id.view_all);
+        getAll.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Cursor cur = cards.getAllData();
+                if(cur.getCount() == 0){
+                    showMessage("Error", "No data to show!");
+                    return;
+                }
+                else{
+                    StringBuffer buffer = new StringBuffer();
+                    while(cur.moveToNext()){
+                        buffer.append("Id: "+ cur.getString(0) + "\n");
+                        buffer.append("First Name: "+ cur.getString(1) + "\n");
+                        buffer.append("Last Name: "+ cur.getString(2) + "\n");
+                        buffer.append("Address 1: "+ cur.getString(3) + "\n");
+                        buffer.append("Address 2: "+ cur.getString(4) + "\n");
+                        buffer.append("Country: "+ cur.getString(5) + "\n");
+                        buffer.append("State: "+ cur.getString(6) + "\n");
+                        buffer.append("Zip Code: "+ cur.getString(7) + "\n");
+                        buffer.append("Phone Number: "+ cur.getString(8) + "\n");
+                        buffer.append("City: "+ cur.getString(9) + "\n");
+                        buffer.append("Business: "+ cur.getString(10) + "\n\n");
+                    }
+                    showMessage("Data", buffer.toString());
+                }
+
+            }
+        });
+    }
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
+    private void addCardBtn() {
         onClick = (Button) findViewById(R.id.addCard);
         onClick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -88,7 +136,6 @@ public class Manual_Input extends AppCompatActivity {
 
             }
         });
-
     }
 
     public boolean insert(){
@@ -124,7 +171,7 @@ public class Manual_Input extends AppCompatActivity {
     /**
      * Method to initialize the state spinner by calling an adapter and creating a new Spinner object using R.id
      */
-    public void stateSpinner(){
+    private void stateSpinner(){
         Spinner stateSpinner = (Spinner) findViewById(R.id.state_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource(this, R.array.stateCodes, android.R.layout.simple_spinner_item);
@@ -134,7 +181,7 @@ public class Manual_Input extends AppCompatActivity {
         stateSpinner.setAdapter(stateAdapter);
     }
 
-    public void initializeFieldListeners(){
+    private void initializeFieldListeners(){
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
         address1 = (EditText) findViewById(R.id.streetAddress);
@@ -146,7 +193,7 @@ public class Manual_Input extends AppCompatActivity {
         city = (EditText) findViewById(R.id.city);
         business = (EditText) findViewById(R.id.business);
     }
-    public void initializeSizeRestraints(){
+    private void initializeSizeRestraints(){
         //making sure that the fields won't stretch their width
         firstName.setMaxWidth(firstName.getWidth());
         lastName.setMaxWidth(lastName.getWidth());

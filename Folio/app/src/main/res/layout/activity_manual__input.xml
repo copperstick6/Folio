@@ -106,4 +106,10 @@
         android:layout_height="wrap_content"
         android:id = "@+id/addCard"
         android:text = "@string/add_card_button"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/view_all"
+        android:text = "@string/view_all_button"/>
 </LinearLayout>

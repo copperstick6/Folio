@@ -9,6 +9,7 @@
     <string name="state">State</string>
     <string name="zip_code">Zip Code</string>
     <string name="city">City</string>
+    <string name = "view_all_button">View All Data</string>
     <string name="phone_number">Phone Number</string>
     <string name="business">Business</string>
     <string name="addManual">Add Cards Manually</string>
