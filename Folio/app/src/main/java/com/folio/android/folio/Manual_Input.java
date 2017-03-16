@@ -25,6 +25,8 @@ public class Manual_Input extends AppCompatActivity {
     public EditText phoneNumber;
     public EditText city;
     public EditText business;
+    public cardDB cards;
+
 
 
     @Override
@@ -33,6 +35,7 @@ public class Manual_Input extends AppCompatActivity {
         setContentView(R.layout.activity_manual__input);
         countrySpinner();
         stateSpinner();
+        cards = new cardDB(this);
         onClick = (Button) findViewById(R.id.addCard);
         onClick.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,8 +43,6 @@ public class Manual_Input extends AppCompatActivity {
                 boolean emptyField = false;
                 initializeFieldListeners();
                 initializeSizeRestraints();
-
-
                 if(firstName.getText().toString().length() == 0){
                     firstName.setError("First Name is required!");
                     emptyField = true;
@@ -76,8 +77,13 @@ public class Manual_Input extends AppCompatActivity {
                 }
                 if(!emptyField){
                     //add to Form
-                    Toast.makeText(Manual_Input.this, R.string.add_SQL, Toast.LENGTH_SHORT).show();
-
+                    boolean inserted = insert();
+                    if(inserted){
+                        Toast.makeText(Manual_Input.this, "Inputted!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(Manual_Input.this, "not added", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -85,6 +91,23 @@ public class Manual_Input extends AppCompatActivity {
 
     }
 
+    public boolean insert(){
+        String firstname = firstName.getText().toString();
+        String lastname = lastName.getText().toString();
+        String address1 = this.address1.getText().toString();
+        String address2 = this.address2.getText().toString();
+        String country = this.country.getSelectedItem().toString();
+        String usState = this.usState.getSelectedItem().toString();
+        String zipcode = this.zipCode.getText().toString();
+        String phoneNumber = this.phoneNumber.getText().toString();
+        String city = this.city.getText().toString();
+        String business = this.business.getText().toString();
+        if(address2.length() == 0){
+            address2 = "null";
+        }
+        return cards.insert(firstname, lastname, address1, address2, country, usState, zipcode, phoneNumber, city, business);
+
+    }
     /**
      * Method to initialize the country spinner, by calling an adapter and creating a new Spinner object using R.id
      */

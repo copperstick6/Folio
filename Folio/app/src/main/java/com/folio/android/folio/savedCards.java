@@ -7,11 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class savedCards extends AppCompatActivity {
-    public Button manual_input;
+    public cardDB cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cards = new cardDB(this);
         setContentView(R.layout.activity_saved_cards);
         Intent i = new Intent(savedCards.this, addChoiceActivity.class);
         startActivity(i);
