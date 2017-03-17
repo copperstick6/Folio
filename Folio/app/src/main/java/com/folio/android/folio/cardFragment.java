@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -56,11 +57,18 @@ public class cardFragment extends Fragment {
 
 
     }
-    private class cardHolder extends RecyclerView.ViewHolder{
+    private class cardHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView mTitleTextView;
         public cardHolder(View itemView){
             super(itemView);
             mTitleTextView = (TextView) itemView;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getActivity(), "User clicked!", Toast.LENGTH_SHORT).show();
+
         }
     }
     private class cardAdapter extends RecyclerView.Adapter<cardHolder>{

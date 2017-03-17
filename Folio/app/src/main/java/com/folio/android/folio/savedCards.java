@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class savedCards extends FragmentActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +19,14 @@ public class savedCards extends FragmentActivity {
         setContentView(R.layout.activity_saved_cards);
         //Intent i = new Intent(savedCards.this, addChoiceActivity.class);
         //startActivity(i);
+
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.activity_saved_cards);
         if(fragment == null){
             fragment = new cardFragment();
             fm.beginTransaction().add(R.id.activity_saved_cards, fragment).commit();
         }
+
 
 
     }
