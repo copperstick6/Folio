@@ -67,8 +67,8 @@ public class cardFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(), "User clicked!", Toast.LENGTH_SHORT).show();
-
+            //TODO I just need to pass the adapter position between intents! Hype!
+            Toast.makeText(getActivity(), "User clicked!" + " " + this.getAdapterPosition(), Toast.LENGTH_SHORT).show();
         }
     }
     private class cardAdapter extends RecyclerView.Adapter<cardHolder>{
@@ -86,6 +86,7 @@ public class cardFragment extends Fragment {
         public void onBindViewHolder(cardHolder holder, int position){
             ArrayList<String> curObject = allCards.get(position);
             holder.mTitleTextView.setText(curObject.get(1) + " " + curObject.get(2));
+
         }
         @Override
         public int getItemCount(){
