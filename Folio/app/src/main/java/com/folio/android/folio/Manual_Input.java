@@ -44,6 +44,10 @@ public class Manual_Input extends AppCompatActivity {
 
     }
 
+    /**
+     * This Button is to get all the cards in the Database
+     * Called whenever the Intent is created
+     */
     private void getAllBtn(){
         getAll = (Button) findViewById(R.id.view_all);
         getAll.setOnClickListener(new View.OnClickListener(){
@@ -75,6 +79,13 @@ public class Manual_Input extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This showMessage creates a Modal wherein we see the User input. Purely for Debugging purposes
+     * Will be deprecated with final release
+     * @param title     This is the title of the message
+     * @param message   This is the message to be displayed
+     */
     public void showMessage(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -83,6 +94,10 @@ public class Manual_Input extends AppCompatActivity {
         builder.show();
     }
 
+
+    /**
+     * This button adds the card to the database whilst also checking for empty fields and setting alerts if those fields exist
+     */
     private void addCardBtn() {
         onClick = (Button) findViewById(R.id.addCard);
         onClick.setOnClickListener(new View.OnClickListener(){
@@ -138,6 +153,10 @@ public class Manual_Input extends AppCompatActivity {
         });
     }
 
+    /**
+     * The following field is to insert the card into the database after the checks have been performed
+     * @return  return true if insert succeeds, false otherwise
+     */
     public boolean insert(){
         String firstname = firstName.getText().toString();
         String lastname = lastName.getText().toString();
@@ -181,6 +200,9 @@ public class Manual_Input extends AppCompatActivity {
         stateSpinner.setAdapter(stateAdapter);
     }
 
+    /**
+     * This initializes all the listeners for the fields by finding the views first
+     */
     private void initializeFieldListeners(){
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
@@ -193,6 +215,10 @@ public class Manual_Input extends AppCompatActivity {
         city = (EditText) findViewById(R.id.city);
         business = (EditText) findViewById(R.id.business);
     }
+
+    /**
+     * This initializes all the size restraints placed upon the fields
+     */
     private void initializeSizeRestraints(){
         //making sure that the fields won't stretch their width
         firstName.setMaxWidth(firstName.getWidth());

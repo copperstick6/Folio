@@ -1,5 +1,6 @@
 package com.folio.android.folio;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -68,7 +69,27 @@ public class cardFragment extends Fragment {
         @Override
         public void onClick(View v) {
             //TODO I just need to pass the adapter position between intents! Hype!
-            Toast.makeText(getActivity(), "User clicked!" + " " + this.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "User clicked!" + " " + this.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            //need to switch between intents and pass data into intent.
+            Cursor cur = cards.getAllData();
+            for(int i = 0; i < this.getAdapterPosition() + 1; i++){
+                cur.moveToNext();
+            }
+            //TODO Create a new intent with user business card data
+            Intent i = new Intent(getContext(), businesscard.class);
+            i.putExtra("id", cur.getString(0));
+            i.putExtra("firstName", cur.getString(1));
+            i.putExtra("lastName", cur.getString(2));
+            i.putExtra("address1", cur.getString(3));
+            i.putExtra("address2", cur.getString(4));
+            i.putExtra("country", cur.getString(5));
+            i.putExtra("usState", cur.getString(6));
+            i.putExtra("zipCode", cur.getString(7));
+            i.putExtra("phoneNumber", cur.getString(8));
+            i.putExtra("city", cur.getString(9));
+            i.putExtra("business", cur.getString(10));
+            startActivity(i);
+
         }
     }
     private class cardAdapter extends RecyclerView.Adapter<cardHolder>{

@@ -18,9 +18,9 @@ public class savedCards extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_cards);
-        //fragmentStarter();
-        Intent i = new Intent(savedCards.this, addChoiceActivity.class);
-        startActivity(i);
+        fragmentStarter();
+        //Intent i = new Intent(savedCards.this, addChoiceActivity.class);
+        //startActivity(i);
     }
     public void fragmentStarter(){
         FragmentManager fm = getSupportFragmentManager();

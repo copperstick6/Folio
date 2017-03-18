@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by copperstick6 on 3/13/17.
+ *
  */
 
 public class cardDB extends SQLiteOpenHelper {
@@ -25,14 +26,20 @@ public class cardDB extends SQLiteOpenHelper {
     public static final String COL_10 = "BUSINESS";
 
 
-
+    /**
+     * This is the constructor to initialize the database and get the writable object to start writing to the database
+     * @param context   This is the application context to which the super class takes as a parameter to initialize the database
+     */
     public cardDB(Context context) {
         super(context, DATABASE_NAME, null, 1);
         System.out.println("created object!");
         SQLiteDatabase db = this.getWritableDatabase();
     }
 
-
+    /**
+     * This method is automatically called upon every database object that is created
+     * @param db        This is the paramater passed into the method automatically by the system
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.println("created!");
@@ -40,11 +47,33 @@ public class cardDB extends SQLiteOpenHelper {
 
     }
 
+
+    /**
+     *TODO Still have to figure what to do with database upgrades, still unsure when this method is called
+     * @param db        SQLLiteDatabase passed into upgrade so it can initialize a Cursor object upon it and enact changes
+     * @param oldVersion    old version of database to be upgraded
+     * @param newVersion    new version of database to upgrade to
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
+
+    /**
+     * Data to be inserted
+     * @param firstName first name passed into the database for insertion
+     * @param lastName  last name passed into the database for insertion
+     * @param address1  primary address passed into the database for insertion
+     * @param address2  secondary address passed into the database for insertion
+     * @param Country   country passed into the database for insertion
+     * @param state state passed into the database for insertion
+     * @param zipCode   zip code passed into the database for insertion
+     * @param phoneNumber   phone number passed into the database for insertion
+     * @param city  city passed into the database for insertion
+     * @param business  business passed into the database for insertion
+     * @return  return true if insert is successful, false otherwise
+     */
     public boolean insert(String firstName, String lastName, String address1, String address2, String Country, String state, String zipCode, String phoneNumber, String city, String business){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues content = new ContentValues();
@@ -64,6 +93,11 @@ public class cardDB extends SQLiteOpenHelper {
         }
         return true;
     }
+
+    /**
+     * Method to return a cursor to iterate through the columns and get all data
+     * @return  return a cursor object upon the database
+     */
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cur = db.rawQuery("SELECT * FROM "+ TABLE_NAME, null);
