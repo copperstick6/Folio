@@ -49,6 +49,8 @@
         </activity>
         <activity android:name=".businesscard">
         </activity>
+        <activity android:name=".editCard">
+        </activity>
     </application>
 
 </manifest>

@@ -17,20 +17,20 @@
     <string name="add_SQL">Add SQLite integration to save card data</string>
 
 
-    <string name = "cardFirstName">First Name</string>
-    <string name = "cardLastName">Last Name</string>
-    <string name = "cardAddress1">Address 1</string>
-    <string name = "cardAddress2">Address 2</string>
-    <string name = "cardCountry">Country</string>
-    <string name = "cardState">State</string>
-    <string name = "cardZip">Zip Code</string>
-    <string name = "cardPhone">Phone Number</string>
-    <string name = "cardBusiness">Business</string>
-    <string name = "cardCity">City</string>
+    <string name="cardFirstName">First Name</string>
+    <string name="cardLastName">Last Name</string>
+    <string name="cardAddress1">Address 1</string>
+    <string name="cardAddress2">Address 2</string>
+    <string name="cardCountry">Country</string>
+    <string name="cardState">State</string>
+    <string name="cardZip">Zip Code</string>
+    <string name="cardPhone">Phone Number</string>
+    <string name="cardBusiness">Business</string>
+    <string name="cardCity">City</string>
 
-    <string name = "edit_card_button">Edit Card!</string>
-    <string name = "send_card_button">Send Card!</string>
-
+    <string name="edit_card_button">Edit Card!</string>
+    <string name="send_card_button">Send Card!</string>
+    <string name = "save_card_button">Save Changes!</string>
 
     <string-array name="stateCodes">
         <item>N/A</item>

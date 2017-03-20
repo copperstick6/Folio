@@ -1,5 +1,6 @@
 package com.folio.android.folio;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,17 +29,17 @@ public class businesscard extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            String id = extras.getString("id");
-            String firstName = extras.getString("firstName");
-            String lastName = extras.getString("lastName");
-            String address1 = extras.getString("address1");
-            String address2 = extras.getString("address2");
-            String country = extras.getString("country");
-            String usState = extras.getString("usState");
-            String zipCode = extras.getString("zipCode");
-            String phoneNumber = extras.getString("phoneNumber");
-            String city = extras.getString("city");
-            String business = extras.getString("business");
+            final String id = extras.getString("id");
+            final String firstName = extras.getString("firstName");
+            final String lastName = extras.getString("lastName");
+            final String address1 = extras.getString("address1");
+            final String address2 = extras.getString("address2");
+            final String country = extras.getString("country");
+            final String usState = extras.getString("usState");
+            final String zipCode = extras.getString("zipCode");
+            final String phoneNumber = extras.getString("phoneNumber");
+            final String city = extras.getString("city");
+            final String business = extras.getString("business");
             getIds();
             this.firstName.setText(firstName);
             this.lastName.setText(lastName);
@@ -50,18 +51,31 @@ public class businesscard extends AppCompatActivity {
             this.phoneNumber.setText(phoneNumber);
             this.city.setText(city);
             this.business.setText(business);
+            editCard = (Button) findViewById(R.id.editCard);
+            editCard.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    Intent i = new Intent(businesscard.this, editCard.class);
+                    i.putExtra("id",id);
+                    i.putExtra("firstName", firstName);
+                    i.putExtra("lastName", lastName);
+                    i.putExtra("address1", address1);
+                    i.putExtra("address2", address2);
+                    i.putExtra("country", country);
+                    i.putExtra("usState", usState);
+                    i.putExtra("zipCode", zipCode);
+                    i.putExtra("phoneNumber", phoneNumber);
+                    i.putExtra("city", city);
+                    i.putExtra("business", business);
+                    startActivity(i);
+
+                }
+            });
         }
         else{
             Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
         }
 
-        editCard = (Button) findViewById(R.id.editCard);
-        editCard.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-            }
-        });
     }
     public void getIds(){
         this.firstName = (TextView) findViewById(R.id.cardfirstName);
