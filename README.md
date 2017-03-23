@@ -1,7 +1,7 @@
 # Folio
 
 ## Dependencies:
-NVM fuck Maven. We're using the default package manager for Android studio, which is gradle.  
+We're using the default package manager for Android studio, which is gradle.  
 Make sure you have internet connection when compiling for the first time   
 https://docs.gradle.org/current/userguide/dependency_management.html#gsc.tab=0  
 Upon your first launch on the project, make sure you sync gradle just to make sure packages are installed.
